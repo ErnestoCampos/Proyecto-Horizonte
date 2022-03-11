@@ -56,7 +56,7 @@ ROOT_URLCONF = 'DjanPro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"C:\Users\campo\OneDrive\Escritorio\Proyecto Final Python\index\Templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

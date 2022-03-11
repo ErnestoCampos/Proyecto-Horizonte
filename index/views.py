@@ -1,6 +1,9 @@
+from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 
+def inicio(request):
+    return render(request,"index/index.html")
 
 def Año(request,numero):
     resultado = 2022 - numero
@@ -11,20 +14,10 @@ def Plantilla(request):
     # direccion = open(r"C:\Users\campo\OneDrive\Escritorio\Proyecto Final Python\Templates\template.html")
     # template = Template(direccion.read())
     
-    template = loader.get_template("template.html")
+    # Forma con loader
+    # template = loader.get_template("template.html")
+    # plantilla_preparada = template.render(diccionario_de_datos)
+    # return HttpResponse(plantilla_preparada)
 
-    nombre = 'Ernesto'
-    apellido = 'Campos'
-    
-    lista = [3,1,2,45,1,2,3]
-    
-    diccionario_de_datos = {
-        'nombre': nombre,
-        'apellido': apellido,
-        'edad': 17,
-    }
-
-    
-    plantilla_preparada = template.render(diccionario_de_datos)
-    
-    return HttpResponse(plantilla_preparada)
+    # Forma con Render
+    return render(request, "index/template.html")
