@@ -8,6 +8,15 @@ def inicio(request):
 def sobre_mi(request):
     return render(request, "index/About.html")
 
+def publicaciones(request):
+    return render(request, "index/Publicaciones.html")
+
+def Log_In(request):
+    return render(request, "index/Log_In.html")
+
+def Registro(request):
+    return render(request, "index/Registro.html")
+
 def Año(request,numero):
     resultado = 2022 - numero
     return HttpResponse(f"<h1>Naciste en el año: {resultado}</h1>") 
