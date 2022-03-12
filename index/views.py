@@ -5,8 +5,8 @@ from django.http import HttpResponse
 def inicio(request):
     return render(request,"index/index.html")
 
-def herencia(request):
-    return render(request,"index/blocks.html")
+def sobre_mi(request):
+    return render(request, "index/About.html")
 
 def Año(request,numero):
     resultado = 2022 - numero

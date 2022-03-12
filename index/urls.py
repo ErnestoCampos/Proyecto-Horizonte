@@ -7,5 +7,5 @@ urlpatterns = [
     path('', inicio, name="inicio"),
     path('Año/<int:numero>', Año),
     path('Plantilla/', Plantilla, name="plantilla"),
-    path('herencia/', herencia, name="herencia")
+    path('About/', herencia, name="About")
 ]
