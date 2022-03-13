@@ -20,11 +20,14 @@ class Profesor(models.Model):
 class Curso(models.Model):
     nombre = models.CharField(max_length=15)
     camada = models.IntegerField()
-    
 
 class Entregable(models.Model):
     nombre = models.CharField(max_length=15)
     FechaDeEntrega = models.DateTimeField(max_length=15)
     entregado = models.BooleanField()
 
+class Usuario(models.Model):
+    nombre = models.CharField(max_length=15)
+    email = models.EmailField(max_length=40) 
+    contraseña = models.CharField(max_length=25)
     

@@ -11125,10 +11125,8 @@ header.masthead {
   background: no-repeat center center;
   background-color: #6c757d;
   background-attachment: scroll;
-  background-image: url("https://w.wallhaven.cc/full/mp/wallhaven-mp6dr1.jpg");
 }
 header.masthead:before {
-  background-image: url("https://w.wallhaven.cc/full/mp/wallhaven-mp6dr1.jpg");
   content: "";
   position: absolute;
   top: 0;
