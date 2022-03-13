@@ -5,6 +5,9 @@ from django.http import HttpResponse
 def inicio(request):
     return render(request,"index/index.html")
 
+def formulario(request):
+    return render(request,"index/formulario.html")
+
 def sobre_mi(request):
     return render(request, "index/About.html")
 
