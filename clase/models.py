@@ -26,8 +26,15 @@ class Entregable(models.Model):
     FechaDeEntrega = models.DateTimeField(max_length=15)
     entregado = models.BooleanField()
 
-class Usuario(models.Model):
-    nombre = models.CharField(max_length=15)
-    email = models.EmailField(max_length=40) 
-    contraseña = models.CharField(max_length=25)
+# class Usuario(models.Model):
+#     nombre = models.CharField(max_length=15)
+#     email = models.EmailField(max_length=40) 
+#     contraseña = models.CharField(max_length=25)
+#     registrado = models.BooleanField()
+
+# class Posts(models.Model):
+#     FechaDePublicacion = models.DateTimeField(max_length=15)
+    
+    
+
     
