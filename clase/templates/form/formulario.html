@@ -1,8 +1,41 @@
-{% extends 'index\Templates\index\index.html' %}
+{% extends 'index\index.html' %}
+
+{% block Encabezado %}
+<h1>Registrate en Landfy</h1>
+<span class="subheading">Registrate y comparte tus fotos con todo el mundo. Tomara menos de un minuto!</span>
+{% endblock Encabezado %}
+
 
 {% block Formulario %}
-<form action="/formulario/" method="POST">
-    <input type="text" name="nombre">
-    <input type="text" name="apellido">
+<h2 class="text-center">Registro</h2>
+<form id="contactForm" data-sb-form-api-token="API_TOKEN" class="p-3" action="/formulario.html/" method="GET">
+  <div class="form-floating">
+      <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre" data-sb-validations="required" />
+      <label for="name">Nombre Completo</label>
+      <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es un campo obligatorio.</div>
+  </div>
+  <div class="form-floating">
+      <input class="form-control" id="email" type="email" placeholder="Ingresa tu correo electronico" data-sb-validations="required,email" />
+      <label for="email">Correo electronico</label>
+      <div class="invalid-feedback" data-sb-feedback="email:required">El correo electronico es un campo obligatorio.</div>
+      <div class="invalid-feedback" data-sb-feedback="email:email">El correo electronico no es valido.</div>
+  </div>
+  <div class="form-floating">
+      <input class="form-control" id="password" type="password" placeholder="ingresa tu contraseña" data-sb-validations="required" />
+      <label for="password">Contraseña</label>
+      <div class="invalid-feedback" data-sb-feedback="phone:required">La contraseña es un campo obligatorio.</div>
+  </div>
+  <br />
+  <div class="d-none" id="submitSuccessMessage">
+      <div class="text-center mb-3">
+          <div class="fw-bolder">Form submission successful!</div>
+          To activate this form, sign up at
+          <br />
+          <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+      </div>
+  </div>
+  <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+  <!-- Submit Button-->
+  <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Enviar</button>
 </form>
 {% endblock Formulario %}

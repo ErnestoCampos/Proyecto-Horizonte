@@ -14,4 +14,4 @@ def nuevo_curso(request):
 
 
 def formulario(request):
-    return render(request,"clase\formulario.html")
+    return render(request,"form/formulario.html")
