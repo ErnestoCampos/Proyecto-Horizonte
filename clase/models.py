@@ -33,7 +33,8 @@ class Entregable(models.Model):
 #     registrado = models.BooleanField()
 
 # class Posts(models.Model):
-#     FechaDePublicacion = models.DateTimeField(max_length=15)
+#     Autor = models.CharField(max_length= 30)
+#     FechaDePublicacion = models.DateTimeField()
     
     
 

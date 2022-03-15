@@ -11133,7 +11133,7 @@ header.masthead:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #212529;
+  background-color: lightblue;
   opacity: 0.5;
 }
 header.masthead .page-heading,
@@ -11245,3 +11245,4 @@ header.masthead .site-heading .h1 {
     font-size: 2.25rem;
   }
 }
+

@@ -13,3 +13,5 @@ def nuevo_curso(request):
     return HttpResponse(f"Inscribite al nuevo curso de {nuevo_curso.nombre} en la camada numero {nuevo_curso.camada}")  
 
 
+def formulario(request):
+    return render(request,"clase\formulario.html")
