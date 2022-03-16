@@ -11133,7 +11133,7 @@ header.masthead:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: lightblue;
+  background-color: #3498DB;
   opacity: 0.5;
 }
 header.masthead .page-heading,
