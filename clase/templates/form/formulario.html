@@ -7,9 +7,9 @@
 
 
 {% block Formulario %}
-{% csrf_token %}
 <h2 class="text-center">Registro</h2>
-<form id="contactForm" data-sb-form-api-token="API_TOKEN" class="p-3" action="/formulario.html/" method="post">
+<form id="contactForm" class="p-3" action="" method="post">
+    {% csrf_token %}
   <div class="form-floating">
       <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre" name="Nombre"/>
       <label for="name">Nombre Completo</label>
@@ -19,10 +19,10 @@
       <label for="email">Correo electronico</label>
   </div>
   <div class="form-floating">
-      <input class="form-control" id="password" type="password" placeholder="ingresa tu contraseña" data-sb-validations="required" name="Contraseña"/>
+      <input class="form-control" id="password" type="password" placeholder="ingresa tu contraseña" name="Contraseña"/>
       <label for="password">Contraseña</label>
   </div>
   <br />
-  <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Enviar</button>
+  <input class="btn btn-primary text-uppercase" type="submit"></input>
 </form>
 {% endblock Formulario %}
