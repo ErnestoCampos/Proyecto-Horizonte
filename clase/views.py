@@ -18,17 +18,15 @@ def formulario_usuario(request):
     # return render(request,"form/formulario.html", {"formulario": formulario})
 
     # Forma con Django Forms
-    if request.method == 'POST':
-        formulario = Formulario_Usuario(request.POST)
-        
+    if request.method == 'POST': 
+        formulario = Formulario_Usuario(request.POST)    
+    
         if formulario.is_valid():
             data = formulario.cleaned_data
-            nuevo_usuario = Usuario(nombre=data['Nombre'],email=data['Email'], contraseña=data['Contraseña'])
+            nuevo_usuario = Usuario(nombre=data['nombre'],email=data['email'], contraseña=data['contraseña'],registrado=True)
             nuevo_usuario.save()
-            return render(request, 'form/formulario.html', {'nuevo_usuario': nuevo_usuario})
+            return render(request, 'index/index.html', {'nuevo_usuario': nuevo_usuario})
         
-        else:
-            formulario = Formulario_Usuario()
-            return render(request, 'form/formulario.html', {'formulario': formulario})
-
-    return render(request, 'form/formulario.html')
+    else:
+        formulario = Formulario_Usuario()
+        return render(request, 'form/formulario.html', {'formulario': formulario})
