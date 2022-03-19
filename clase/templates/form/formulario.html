@@ -7,22 +7,15 @@
 
 
 {% block Formulario %}
-<h2 class="text-center">Registro</h2>
-<form id="contactForm" class="p-3" action="" method="post">
+
+<form action={% url 'formulario_usuario' %} method="post">
     {% csrf_token %}
-  <div class="form-floating">
-      <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre" name="Nombre"/>
-      <label for="name">Nombre Completo</label>
-  </div>
-  <div class="form-floating">
-      <input class="form-control" id="email" type="email" placeholder="Ingresa tu correo electronico" name="Email" />
-      <label for="email">Correo electronico</label>
-  </div>
-  <div class="form-floating">
-      <input class="form-control" id="password" type="password" placeholder="ingresa tu contraseña" name="Contraseña"/>
-      <label for="password">Contraseña</label>
-  </div>
-  <br />
-  <input class="btn btn-primary text-uppercase" type="submit"></input>
+
+    <table>
+        {{formulario.as_table}}
+    </table>
+
+    <input type="submit" placeholder="Enviar">
 </form>
+
 {% endblock Formulario %}

@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from clase.models import Usuario
 from clase.forms import Formulario_Usuario
@@ -26,9 +25,10 @@ def formulario_usuario(request):
             data = formulario.cleaned_data
             nuevo_usuario = Usuario(nombre=data['Nombre'],email=data['Email'], contraseña=data['Contraseña'])
             nuevo_usuario.save()
-            return render(request, 'form/formulario.html',{'nuevo_usuario': nuevo_usuario})
+            return render(request, 'form/formulario.html', {'nuevo_usuario': nuevo_usuario})
         
         else:
             formulario = Formulario_Usuario()
             return render(request, 'form/formulario.html', {'formulario': formulario})
+
     return render(request, 'form/formulario.html')
