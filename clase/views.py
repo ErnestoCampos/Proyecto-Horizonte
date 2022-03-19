@@ -1,31 +1,34 @@
-import email
-import random
 from django.http import HttpResponse
 from django.shortcuts import render
-from clase.forms import nuevo_usuario
-
 from clase.models import Usuario
+from clase.forms import Formulario_Usuario
 
 
 # Create your views here.
 
-def formulario(request):
+def busqueda(request):
+    return(request, "form/busqueda.html")
+
+def formulario_usuario(request):
     print(request.method)
 
-    # Forma Tradicional
     # if request.method == "POST":
-    #     nuevo_usuario = Usuario(nombre=request.POST["Nombre"],email=request.POST["Email"],contraseña=request.POST["Contraseña"],registrado=True)
-    #     nuevo_usuario.save()
+    #      = Usuario(nombre=request.POST["Nombre"],email=request.POST["Email"],contraseña=request.POST["Contraseña"],registrado=True)
+    #     .save()
     #     print(request.POST)
+    # return render(request,"form/formulario.html", {"formulario": formulario})
 
     # Forma con Django Forms
-    if request.method == "POST":
-        formulario = nuevo_usuario(request.POST)
-        if formulario.is_valid:
+    if request.method == 'POST':
+        formulario = Formulario_Usuario(request.POST)
+        
+        if formulario.is_valid():
             data = formulario.cleaned_data
-            usuario_nuevo = Usuario(nombre=data["Nombre"],email=data["Email"],contraseña=data["Contraseña"],registrado=True)
-            usuario_nuevo.save()
-            return render(request,"form/formulario.html", {"usuario_nuevo":usuario_nuevo})
-
-    formulario = nuevo_usuario()
-    return render(request,"form/formulario.html", {"formulario": formulario})
+            nuevo_usuario = Usuario(nombre=data['Nombre'],email=data['Email'], contraseña=data['Contraseña'])
+            nuevo_usuario.save()
+            return render(request, 'form/formulario.html',{'nuevo_usuario': nuevo_usuario})
+        
+        else:
+            formulario = Formulario_Usuario()
+            return render(request, 'form/formulario.html', {'formulario': formulario})
+    return render(request, 'form/formulario.html')

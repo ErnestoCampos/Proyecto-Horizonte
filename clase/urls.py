@@ -1,8 +1,9 @@
 from django.urls import URLPattern
 from django.urls import path
-from .views import formulario
+from .views import formulario_usuario, busqueda
 
 
 urlpatterns = [
-    path('Formulario/', formulario, name="Formulario")
+    path('Busqueda/', busqueda , name="Busqueda"),
+    path('Formulario/', formulario_usuario, name="Formulario")
 ]
