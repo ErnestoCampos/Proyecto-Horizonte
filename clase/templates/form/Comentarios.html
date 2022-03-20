@@ -1,0 +1,22 @@
+{% extends 'index\index.html' %}
+
+{% block Encabezado %}
+<h1>Comentarios</h1>
+<span class="subheading">Crea Comentarios</span>
+{% endblock Encabezado %}
+
+
+{% block Comentarios %}
+
+<h1 class="text-center">Crea un Comentario</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{formulario_c.as_table}}
+    </table>
+<br>
+    <input type="submit" placeholder="Enviar">
+</form>
+
+{% endblock Comentarios %}
+

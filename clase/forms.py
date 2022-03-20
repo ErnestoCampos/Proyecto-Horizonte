@@ -11,5 +11,9 @@ class Formulario_Publicacion(forms.Form):
     Autor = forms.CharField(max_length=20)
     FechaDePublicacion = forms.DateTimeField(widget = forms.SelectDateWidget)
 
+class Formulario_Comentario(forms.Form):
+    Autor = forms.CharField(max_length=20)
+    FechaDePublicacion = forms.DateTimeField(widget = forms.SelectDateWidget)
+
 class Buscador(forms.Form):
     partial_nombre = forms.CharField(max_length=20)
