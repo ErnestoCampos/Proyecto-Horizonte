@@ -13,10 +13,11 @@
     {% csrf_token %}
     <h1 class="text-center">Crea una publicacion</h1>
     <table>
-        {{Formulario.as_table}}
+        {{formulario_p.as_table}}
     </table>
 <br>
     <input type="submit" placeholder="Enviar">
 </form>
 
 {% endblock Publicaciones %}
+
