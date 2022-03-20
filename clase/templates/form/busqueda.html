@@ -1,11 +1,21 @@
 {% extends 'index\index.html' %}
 
 {% block Encabezado %}
-<h1>Busca a usuarios en Landfy</h1>
-<span class="subheading">Encuentra al usuario que estas buscando de forma simple y sencilla</span>
+<h1>Busca a un usuario en Landfy</h1>
+<span class="subheading">Encuentra a tus amigos en Landfy de forma rapida y sencilla</span>
 {% endblock Encabezado %}
 
 
 {% block Busqueda %}
-<h1>h1 de prueba</h1>
+
+<form action="" method="get">
+    {% csrf_token %}
+    <h1 class="text-center">Busca a el usuario</h1>
+    <table>
+        {{buscador.as_table}}
+    </table>
+<br>
+    <input type="submit" placeholder="Enviar">
+</form>
+
 {% endblock Busqueda %}

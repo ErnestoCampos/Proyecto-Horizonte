@@ -7,7 +7,6 @@ urlpatterns = [
     path('', inicio, name="inicio"),
     path('Año/<int:numero>', Año),
     path('About/', sobre_mi, name="About"),
-    path('Publicaciones/', publicaciones, name="Publicaciones"),
     path('Inicia-Sesion/', Log_In, name="Log_In"),
     path('Registro/', Registro, name="Registro"),
 ]
