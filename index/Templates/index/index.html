@@ -29,11 +29,11 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'inicio' %}>Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'About' %}>Sobre Mi</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Publicaciones' %}>Publicaciones</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Log_In' %}>Iniciar Sesion</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Formulario' %}>Registrate</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Busqueda' %}>Busqueda</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Comentarios' %}>Comentarios</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'lista_usuarios' %}>Busqueda</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Publicaciones' %}>Publicaciones</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Comentarios' %}>Reseñas</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             {% block Encabezado %}
-                            <h1> Bienvenido a Landfy</h1>
+                            <h1> Bienvenido a mi proyecto</h1>
                             <span class="subheading">Comparte de manera libre las fotos de tus lugares favoritos</span>
                             {% endblock Encabezado %}
                         </div>
@@ -53,7 +53,6 @@
                 </div>
             </div>
         </header>
-        {% block Busqueda %}{% endblock Busqueda %}
         {% block Formulario %}{% endblock Formulario %}
         {% block About %}{% endblock About %}
         {% block Inicia_Sesion %}{% endblock Inicia_Sesion %}

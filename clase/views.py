@@ -1,12 +1,12 @@
+import re
+from urllib import request
+from django.http import HttpResponse
 from django.shortcuts import render
 from clase.models import Comentario, Posts, Usuario
-from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Buscador
+from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda
 
 
 # Create your views here.
-
-def busqueda(request):
-    return(request, "form/busqueda.html")
 
 def formulario_comentario(request):
     print(request.method)
@@ -54,4 +54,12 @@ def formulario_usuario(request):
     formulario_u = Formulario_Usuario()
     return render(request, 'form/formulario.html', {'formulario_u': formulario_u})
 
-
+def lista_usuario (request):
+    nombre_a_buscar = request.GET.get("Nombre", None)
+    if nombre_a_buscar is not None:
+        usuarios = Usuario.objects.filter(nombre__icontains=nombre_a_buscar)
+    else:
+        usuarios = Usuario.objects.all()
+    usuarios = None
+    form = Usuario_Busqueda()
+    return render(request, 'form/lista_usuarios.html', {'form': form, 'usuarios': usuarios})

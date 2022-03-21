@@ -9,6 +9,9 @@ class Usuario(models.Model):
     contraseña = models.CharField(max_length=25)
     registrado = models.BooleanField()
 
+    def __str__(self):
+        return f"{self.nombre}"
+
 class Posts(models.Model):
     Autor = models.CharField(max_length= 30)
     FechaDePublicacion = models.DateTimeField()

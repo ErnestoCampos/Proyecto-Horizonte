@@ -1,0 +1,23 @@
+{% extends 'index\index.html' %}
+
+{% block Encabezado %}
+<h1>Registrate en Landfy</h1>
+<span class="subheading">Registrate y comparte tus fotos con todo el mundo. Tomara menos de un minuto!</span>
+{% endblock Encabezado %}
+
+
+{% block Formulario %}
+
+<form action="" method="get">
+    {% csrf_token %}
+    <h1 class="text-center">Busca a otros usuarios</h1>
+    <table>
+        {{form.as_table}}
+    </table>
+<br>
+    <input type="submit" placeholder="Buscar">
+</form>
+
+{% for usuarios in lista_usuario %}{% endfor %}
+<li>{{usuario}}</li>
+{% endblock Formulario %}
