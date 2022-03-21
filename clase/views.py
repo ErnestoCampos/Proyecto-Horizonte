@@ -54,12 +54,14 @@ def formulario_usuario(request):
     formulario_u = Formulario_Usuario()
     return render(request, 'form/formulario.html', {'formulario_u': formulario_u})
 
-def lista_usuario (request):
-    nombre_a_buscar = request.GET.get("Nombre", None)
+def lista_usuarios(request):
+
+    nombre_a_buscar = request.GET.get('nombre', None)
+
     if nombre_a_buscar is not None:
         usuarios = Usuario.objects.filter(nombre__icontains=nombre_a_buscar)
     else:
         usuarios = Usuario.objects.all()
-    usuarios = None
+
     form = Usuario_Busqueda()
     return render(request, 'form/lista_usuarios.html', {'form': form, 'usuarios': usuarios})

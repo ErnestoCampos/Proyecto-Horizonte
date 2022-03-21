@@ -17,4 +17,4 @@ class Formulario_Comentario(forms.Form):
     FechaDePublicacion = forms.DateTimeField(widget = forms.SelectDateWidget)
 
 class Usuario_Busqueda(forms.Form):
-    partial_nombre = forms.CharField(max_length=20)
+    nombre = forms.CharField(max_length=20)
