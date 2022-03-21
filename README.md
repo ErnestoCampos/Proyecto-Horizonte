@@ -10,7 +10,7 @@ El orden de prueba es el siguiente:
 _ Crear un usuario en la pestaña de registrarse(Usuario) y completar los campos
 _ Dirigirse a la pestaña de publicaciones(Posts) y reseñas(Comentarios) completando de la misma forma todos los campos
 _ Luego irse a la seccion /admin desde la direccion de la pagina y logear 
-con el superuser
+con el superuser( Pase por slack los datos)
 
 
 _Desde ahi se podra corroborar la creacion de todos los modelos en sus secciones
