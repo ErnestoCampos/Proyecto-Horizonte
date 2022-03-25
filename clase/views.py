@@ -1,7 +1,7 @@
 import re
 from urllib import request
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from clase.models import Comentario, Posts, Usuario
 from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
 from index.views import publicaciones
@@ -71,8 +71,7 @@ def lista_usuarios(request):
 
 def publicacion_listado(request): 
     publicaciones_usuarios = Posts.objects.all()
-    return render(request, 'form/listado_publicaciones.html', {'listado_usuarios': publicaciones_usuarios}) 
-    pass
+    return render(request, 'form/publicacion_listado.html', {'publicaciones_usuarios': publicaciones_usuarios}) 
 
 def crear_publicacion(request): 
     if request.method == 'POST': 
@@ -85,11 +84,10 @@ def crear_publicacion(request):
             FechaDePublicacion=data["FechaDePublicacion"]
             )
             nueva_publicacion.save()
-            return render(request, 'index/index.html', {'nuevo_usuario': nueva_publicacion})
+            return redirect(request, 'form/listado_publicaciones.html', {'nueva_publicacion': nueva_publicacion})
         
     formulario_cp = Publicacion_Crear()
     return render(request, 'form/listado_publicaciones.html', {})
-    pass
 
 def borrar_publicacion(request): pass
 

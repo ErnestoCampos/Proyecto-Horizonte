@@ -1,0 +1,20 @@
+{% extends 'index\index.html' %}
+
+{% block Encabezado %}
+<h1>Publicaciones</h1>
+<span class="subheading">Crea tus publicaciones y compartelas con el mundo</span>
+{% endblock Encabezado %}
+
+{% block Funciones %}
+<a href={% url 'crear_publicacion' %}>Crear publicacion</a>
+{% endblock Funciones %}
+
+{% block Formulario %}
+
+<p> Todos las publicaciones:</p>
+{% for publicaciones in publicacion_listado %}
+
+<li>{{publicaciones}}</li>
+
+{% endfor %}
+{% endblock Formulario %}
