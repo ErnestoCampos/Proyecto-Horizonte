@@ -1,7 +1,7 @@
 
 from django.urls import URLPattern
 from django.urls import path
-from .views import Log_In, Registro, Año , inicio, publicaciones, sobre_mi
+from .views import Registro, Año , inicio, sobre_mi
 
 urlpatterns = [
     path('', inicio, name="inicio"),

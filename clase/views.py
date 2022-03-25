@@ -3,7 +3,8 @@ from urllib import request
 from django.http import HttpResponse
 from django.shortcuts import render
 from clase.models import Comentario, Posts, Usuario
-from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda
+from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
+from index.views import publicaciones
 
 
 # Create your views here.
@@ -65,3 +66,34 @@ def lista_usuarios(request):
 
     form = Usuario_Busqueda()
     return render(request, 'form/lista_usuarios.html', {'form': form, 'usuarios': usuarios})
+
+# CRUD Basico
+
+def publicacion_listado(request): 
+    publicaciones_usuarios = Posts.objects.all()
+    return render(request, 'form/listado_publicaciones.html', {'listado_usuarios': publicaciones_usuarios}) 
+    pass
+
+def crear_publicacion(request): 
+    if request.method == 'POST': 
+        formulario_cp = Publicacion_Crear(request.POST)    
+    
+        if formulario_cp.is_valid():
+            data = formulario_cp.cleaned_data
+            nueva_publicacion = Posts(
+            Autor=data["Autor"],
+            FechaDePublicacion=data["FechaDePublicacion"]
+            )
+            nueva_publicacion.save()
+            return render(request, 'index/index.html', {'nuevo_usuario': nueva_publicacion})
+        
+    formulario_cp = Publicacion_Crear()
+    return render(request, 'form/listado_publicaciones.html', {})
+    pass
+
+def borrar_publicacion(request): pass
+
+def leer_publicacion(request): pass
+
+def update_publicacion(request): pass
+

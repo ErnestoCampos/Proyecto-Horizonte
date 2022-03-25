@@ -18,3 +18,7 @@ class Formulario_Comentario(forms.Form):
 
 class Usuario_Busqueda(forms.Form):
     nombre = forms.CharField(max_length=20)
+
+class Publicacion_Crear(forms.Form):
+        Autor = forms.CharField(max_length=20)
+        FechaDePublicacion = forms.DateTimeField(widget = forms.SelectDateWidget)
