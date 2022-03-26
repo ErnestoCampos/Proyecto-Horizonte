@@ -70,24 +70,22 @@ def lista_usuarios(request):
 # CRUD Basico
 
 def publicacion_listado(request): 
-    publicaciones_usuarios = Posts.objects.all()
-    return render(request, 'form/publicacion_listado.html', {'publicaciones_usuarios': publicaciones_usuarios}) 
+    publicaciones_listado = Posts.objects.all()
+    return render(request, 'form/publicacion_listado.html', {'publicaciones_listado': publicaciones_listado}) 
 
 def crear_publicacion(request): 
     if request.method == 'POST': 
-        formulario_cp = Publicacion_Crear(request.POST)    
+        formulario_cp = Formulario_Publicacion(request.POST)    
     
         if formulario_cp.is_valid():
             data = formulario_cp.cleaned_data
             nueva_publicacion = Posts(
-            Autor=data["Autor"],
-            FechaDePublicacion=data["FechaDePublicacion"]
-            )
+            Autor=data["Autor"],FechaDePublicacion=data["FechaDePublicacion"])
             nueva_publicacion.save()
-            return redirect(request, 'form/listado_publicaciones.html', {'nueva_publicacion': nueva_publicacion})
-        
-    formulario_cp = Publicacion_Crear()
-    return render(request, 'form/listado_publicaciones.html', {})
+            return redirect('publicacion_listado')
+ 
+    formulario_cp = Formulario_Publicacion()
+    return render(request, 'form/crear_publicaciones.html', {'formulario_cp': formulario_cp})
 
 def borrar_publicacion(request): pass
 

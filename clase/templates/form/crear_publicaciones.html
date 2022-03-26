@@ -1,21 +1,20 @@
 {% extends 'index\index.html' %}
 
 {% block Encabezado %}
-<h1>Registrate en Landfy</h1>
-<span class="subheading">Registrate y comparte tus fotos con todo el mundo. Tomara menos de un minuto!</span>
+<h1>Publicaciones</h1>
+<span class="subheading">Crea tus publicaciones y compartelas con el mundo</span>
 {% endblock Encabezado %}
 
-
-{% block Formulario %}
+{% block Publicaciones %}
 
 <form action="" method="post">
     {% csrf_token %}
-    <h1 class="text-center">Registro</h1>
+    <h1 class="text-center">Crea la publicacion</h1>
     <table>
-        {{formulario_u.as_table}}
+        {{formulario_cp.as_table}}
     </table>
 <br>
     <input type="submit" placeholder="Enviar">
 </form>
 
-{% endblock Formulario %}
+{% endblock Publicaciones %}
