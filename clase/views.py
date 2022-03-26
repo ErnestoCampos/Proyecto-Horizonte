@@ -1,10 +1,13 @@
+from django.views.generic import ListView
+from pyexpat import model
 import re
 from urllib import request
+from django import template
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from clase.models import Comentario, Posts, Usuario
 from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
-from index.views import publicaciones
+
 
 
 # Create your views here.
@@ -102,8 +105,8 @@ def update_publicacion(request, id):
             return redirect('publicacion_listado')
     formulario_ap = Formulario_Publicacion(
         initial={
-            'Autor': Posts.Autor,
-            'FechaDePublicacion': Posts.FechaDePublicacion
+            'Autor': publicacion.Autor,
+            'FechaDePublicacion': publicacion.FechaDePublicacion
         })
     return render(request, 'form/update_publicaciones.html', {'formulario_ap': formulario_ap, 'publicacion': publicacion})
 
@@ -115,4 +118,9 @@ def borrar_publicacion(request, id):
 def leer_publicacion(request): pass
 
 
+# CRUD con Clases Basadas en Vistas (CBV)
 
+
+class ListaUsuarios(ListView):
+    model = Usuario
+    template_name = '/clase/Usuario_datos.html'
