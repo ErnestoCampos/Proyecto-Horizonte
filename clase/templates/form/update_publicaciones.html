@@ -7,14 +7,14 @@
 
 {% block Publicaciones %}
 
-<form action= {% url 'crear_publicacion' %} method="post">
+<form action= {% url 'update_publicacion' publicacion.id %} method="post">
     {% csrf_token %}
-    <h1 class="text-center">Crea la publicacion</h1>
+    <h1 class="text-center">Actualiza la publicacion</h1>
     <table>
-        {{formulario_cp.as_table}}
+        {{formulario_ap.as_table}}
     </table>
 <br>
-    <input type="submit" placeholder="Crear">
+    <input type="submit" placeholder="Actualizar">
 </form>
 
 {% endblock Publicaciones %}

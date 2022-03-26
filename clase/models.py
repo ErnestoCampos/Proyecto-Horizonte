@@ -15,6 +15,9 @@ class Usuario(models.Model):
 class Posts(models.Model):
     Autor = models.CharField(max_length= 30)
     FechaDePublicacion = models.DateTimeField()
+ 
+    def __str__(self):
+        return f"Publicacion de {self.Autor}" 
     
 class Comentario(models.Model):
     Autor = models.CharField(max_length= 30)

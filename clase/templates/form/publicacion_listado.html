@@ -12,9 +12,13 @@
 {% block Formulario %}
 
 <p> Todos las publicaciones:</p>
-{% for publicaciones in publicacion_listado %}
+{% for publicaciones in publicaciones_listado %}
 
-<li>{{publicaciones}}</li>
+<li>
+    {{publicaciones}}
+    <a href= {% url 'update_publicacion' publicaciones.id %}>Editar</a>
+    <a href= {% url 'borrar_publicacion' publicaciones.id %}>Borrar</a>
+</li>
 
 {% endfor %}
 {% endblock Formulario %}

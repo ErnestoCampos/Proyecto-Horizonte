@@ -12,7 +12,7 @@ urlpatterns = [
     path('usuarios/', views.lista_usuarios , name="lista_usuarios"),
     path('publicacion/listado', views.publicacion_listado, name="publicacion_listado"),
     path('publicacion/crear', views.crear_publicacion, name="crear_publicacion"),
-    path('publicacion/borrar', views.borrar_publicacion, name="borrar_publicacion"),
+    path('publicacion/borrar/<int:id>', views.borrar_publicacion, name="borrar_publicacion"),
     path('publicacion/leer', views.leer_publicacion, name="leer_publicacion"),
-    path('publicacion/update', views.update_publicacion, name="update_publicacion")
+    path('publicacion/update/<int:id>', views.update_publicacion, name="update_publicacion")
 ]

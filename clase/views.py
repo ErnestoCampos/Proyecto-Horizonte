@@ -87,9 +87,32 @@ def crear_publicacion(request):
     formulario_cp = Formulario_Publicacion()
     return render(request, 'form/crear_publicaciones.html', {'formulario_cp': formulario_cp})
 
-def borrar_publicacion(request): pass
+def update_publicacion(request, id): 
+
+    publicacion = Posts.objects.get(id=id)
+
+    if request.method == 'POST': 
+        formulario_ap = Formulario_Publicacion(request.POST)    
+    
+        if formulario_ap.is_valid():
+            data = formulario_ap.cleaned_data
+            publicacion.Autor = data["Autor"]
+            publicacion.FechaDePublicacion = data["FechaDePublicacion"]
+            publicacion.save()
+            return redirect('publicacion_listado')
+    formulario_ap = Formulario_Publicacion(
+        initial={
+            'Autor': Posts.Autor,
+            'FechaDePublicacion': Posts.FechaDePublicacion
+        })
+    return render(request, 'form/update_publicaciones.html', {'formulario_ap': formulario_ap, 'publicacion': publicacion})
+
+def borrar_publicacion(request, id):
+    publicacion = Posts.objects.get(id=id)
+    publicacion.delete()
+    return redirect('publicacion_listado')
 
 def leer_publicacion(request): pass
 
-def update_publicacion(request): pass
+
 
