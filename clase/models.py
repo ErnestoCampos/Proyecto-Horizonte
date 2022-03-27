@@ -21,4 +21,5 @@ class Posts(models.Model):
     
 class Comentario(models.Model):
     Autor = models.CharField(max_length= 30)
+    Mensaje = models.CharField(max_length= 100)
     FechaDePublicacion = models.DateTimeField()

@@ -1,9 +1,6 @@
-from django.views.generic import ListView
 from pyexpat import model
-import re
 from urllib import request
-from django import template
-from django.http import HttpResponse
+from django.views.generic import ListView
 from django.shortcuts import redirect, render
 from clase.models import Comentario, Posts, Usuario
 from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
@@ -123,4 +120,4 @@ def leer_publicacion(request): pass
 
 class ListaUsuarios(ListView):
     model = Usuario
-    template_name = '/clase/Usuario_datos.html'
+    template_name = "/clase/usuario_list.html"
