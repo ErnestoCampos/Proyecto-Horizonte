@@ -16,7 +16,7 @@ def formulario_comentario(request):
     
         if formulario_c.is_valid():
             data = formulario_c.cleaned_data
-            nuevo_comentario = Comentario(Autor=data["Autor"],FechaDePublicacion=data["FechaDePublicacion"],Mensaje=data["Mensaje"])
+            nuevo_comentario = Comentario(Autor=data["Autor"],FechaDePublicacion=data["FechaDePublicacion"])
             nuevo_comentario.save()
             return render(request, 'index/index.html', {'nuevo_comentario': nuevo_comentario})
         
@@ -120,4 +120,4 @@ def leer_publicacion(request): pass
 
 class ListaUsuarios(ListView):
     model = Usuario
-    template_name = "/clase/usuario_list.html"
+    template_name = "usuario_list.html"

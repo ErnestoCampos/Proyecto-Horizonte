@@ -1,17 +1,17 @@
 {% extends 'index\index.html' %}
 
 {% block Encabezado %}
-<h1>Datos del usuario</h1>
+<h1>Busca a otros usuarios en Landfy</h1>
+<span class="subheading">Encuentra a tus amigos en Landfy en nuestra base de datos</span>
 {% endblock Encabezado %}
+
 
 {% block Formulario %}
 
+<p> Todos los usuarios:</p>
 {% for usuario in object_list %}
 <li>
-    {{profesor}}
-    {% comment %} <a href={% url 'usuario_detalle' profesor.id %}>Ver mas...</a>
-    <a href={% url 'usuario_editar' profesor.id %}>Editar</a>
-    <a href={% url 'usuario_borrar' profesor.id %}>Borrar</a> {% endcomment %}
+    {{usuario}}
 </li>
 {% endfor %}
 
