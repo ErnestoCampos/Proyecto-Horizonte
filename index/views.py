@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.template import loader
 from django.http import HttpResponse
 
@@ -22,4 +22,4 @@ def Año(request,numero):
     return HttpResponse(f"<h1>Naciste en el año: {resultado}</h1>") 
 
 def login(request):
-    return render(request, "index/Templates/index/login.html", {})
+    return redirect("login", {})

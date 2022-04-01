@@ -118,6 +118,6 @@ def leer_publicacion(request): pass
 # CRUD con Clases Basadas en Vistas (CBV)
 
 
-class ListaUsuarios(ListView):
-    model = Usuario
-    template_name = "usuario_list.html"
+class ListaPosts(ListView):
+    model = Posts
+    template_name = "form/posts_list.html"

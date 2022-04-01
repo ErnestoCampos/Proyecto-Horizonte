@@ -17,5 +17,5 @@ urlpatterns = [
     path('publicacion/leer', views.leer_publicacion, name="leer_publicacion"),
     path('publicacion/update/<int:id>', views.update_publicacion, name="update_publicacion"),
     # CRUD Usuarios CBV 
-    path('usuarios/list', views.ListaUsuarios.as_view(), name="usuario_list"),
+    path('posts/list', views.ListaPosts.as_view(), name="posts_list"),
 ]

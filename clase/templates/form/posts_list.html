@@ -1,0 +1,17 @@
+{% extends 'index\index.html' %}
+
+{% block Encabezado %}
+<h1>Publicaciones</h1>
+<span class="subheading">Crea tus publicaciones y compartelas con el mundo</span>
+{% endblock Encabezado %}
+
+{% block Formulario %}
+
+<h2 class="text-center">Ultimas Publicaciones</h2>
+{% for post in object_list %}
+<li>
+    {{post}}
+</li>
+{% endfor %}
+
+{% endblock Formulario %}
