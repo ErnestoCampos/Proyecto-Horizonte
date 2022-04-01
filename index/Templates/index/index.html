@@ -30,10 +30,11 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'inicio' %}>Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'About' %}>Sobre Mi</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Formulario' %}>Registrate</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'lista_usuarios' %}>Busqueda</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'login' %}>Inicia Sesion</a></li>
+                        {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'lista_usuarios' %}>Busqueda</a></li> {% endcomment %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'publicacion_listado' %}>Publicaciones</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'usuario_list' %}>Usuarios</a></li>   
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Comentarios' %}>Reseñas</a></li>
+                        {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Comentarios' %}>Reseñas</a></li> {% endcomment %}
                     </ul>
                 </div>
             </div>
@@ -53,6 +54,7 @@
                 </div>
             </div>
         </header>
+        {% block PruebaTemplate %}{% endblock PruebaTemplate %}
         {% block Funciones %}{% endblock Funciones %}
         {% block Formulario %}{% endblock Formulario %}
         {% block About %}{% endblock About %}
