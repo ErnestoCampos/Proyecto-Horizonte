@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 from clase.models import Comentario, Posts, Usuario
 from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import DeleteView, UpdateView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 
 
 # Create your views here.
@@ -130,9 +130,17 @@ class DetallePosts(DetailView):
 class EditarPosts(UpdateView):
     model = Posts
     success_url = "form/posts_list.html"
+    template_name = "form/posts_editar.html"
     fields = ['Autor', 'FechaDePublicacion']
 
 
 class BorrarPosts(DeleteView):
     model = Posts
+    template_name = "form/posts_confirm_delete.html"
     success_url = "form/posts_list.html"
+    
+class CrearPosts(CreateView):
+    model = Posts
+    template_name = "form/post_crear.html"
+    success_url = "form/posts_list.html"
+    fields = ['Autor', 'FechaDePublicacion']
