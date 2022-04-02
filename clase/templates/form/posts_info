@@ -1,0 +1,7 @@
+{% extends 'index/index.html' %}
+
+{% block PruebaTemplate %}
+
+    {{object.post}}
+
+{% endblock PruebaTemplate %}
