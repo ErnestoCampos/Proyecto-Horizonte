@@ -4,7 +4,8 @@ from django.views.generic import ListView
 from django.shortcuts import redirect, render
 from clase.models import Comentario, Posts, Usuario
 from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
-
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView, UpdateView
 
 
 # Create your views here.
@@ -112,7 +113,6 @@ def borrar_publicacion(request, id):
     publicacion.delete()
     return redirect('publicacion_listado')
 
-def leer_publicacion(request): pass
 
 
 # CRUD con Clases Basadas en Vistas (CBV)
@@ -121,3 +121,18 @@ def leer_publicacion(request): pass
 class ListaPosts(ListView):
     model = Posts
     template_name = "form/posts_list.html"
+
+class DetallePosts(DetailView):
+    model = Posts
+    template_name = "form/posts_info.html"
+
+
+class EditarPosts(UpdateView):
+    model = Posts
+    success_url = "form/posts_list.html"
+    fields = ['Autor', 'FechaDePublicacion']
+
+
+class BorrarPosts(DeleteView):
+    model = Posts
+    success_url = "form/posts_list.html"

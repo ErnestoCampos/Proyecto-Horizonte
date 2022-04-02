@@ -14,8 +14,10 @@ urlpatterns = [
     path('publicacion/listado', views.publicacion_listado, name="publicacion_listado"),
     path('publicacion/crear', views.crear_publicacion, name="crear_publicacion"),
     path('publicacion/borrar/<int:id>', views.borrar_publicacion, name="borrar_publicacion"),
-    path('publicacion/leer', views.leer_publicacion, name="leer_publicacion"),
     path('publicacion/update/<int:id>', views.update_publicacion, name="update_publicacion"),
     # CRUD Usuarios CBV 
-    path('posts/list', views.ListaPosts.as_view(), name="posts_list"),
+    path('posts/', views.ListaPosts.as_view(), name="posts_list"),
+    path('posts/<int:pk>/', views.DetallePosts.as_view(), name="posts_detalle"),
+    path('posts/<int:pk>/editar/', views.EditarPosts.as_view(), name="posts_editar"),
+    path('posts/<int:pk>/borrar/', views.BorrarPosts.as_view(), name="posts_borrar"),
 ]

@@ -1,0 +1,16 @@
+{% extends 'index\index.html' %}
+
+{% block Encabezado %}
+<h1>Publicaciones</h1>
+<span class="subheading">Crea tus publicaciones y compartelas con el mundo</span>
+{% endblock Encabezado %}
+
+{% block Formulario %}
+
+<form method="post">
+    {% csrf_token %}
+    ¿Esta seguro que quiere borrar el post?
+    <input type="submit" value="Confirmo">
+</form>
+
+{% endblock Formulario %}

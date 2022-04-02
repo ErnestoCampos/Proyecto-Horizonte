@@ -1,0 +1,19 @@
+{% extends 'index\index.html' %}
+
+{% block Encabezado %}
+<h1>Publicaciones</h1>
+<span class="subheading">Crea tus publicaciones y compartelas con el mundo</span>
+{% endblock Encabezado %}
+
+
+{% block Formulario %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <h1 class="text-center">Editar Post</h1>
+        {{form.as_p}}
+<br>
+    <input type="submit" placeholder="Editar">
+</form>
+
+{% endblock Formulario %}

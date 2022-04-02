@@ -11,6 +11,9 @@
 {% for post in object_list %}
 <li>
     {{post}}
+    <a href={% url 'posts_editar' post.id %}>Editar</a>
+    <a href={% url 'posts_borrar' post.id %}>Borrar</a>
+    <a href={% url 'posts_detalle' post.id %}>Ver mas...</a>
 </li>
 {% endfor %}
 
