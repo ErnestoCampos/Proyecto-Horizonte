@@ -1,9 +1,6 @@
-{% extends 'indice/index.html' %}
+{% extends 'index/index.html' %}
 
-{% block header_index %}
-{% endblock header_index %}
-
-{% block pruebaTemplate %}
+{% block PruebaTemplate %}
     
     <form action={% url 'posts_crear' %} method="post">
         {% csrf_token %}
@@ -12,4 +9,4 @@
         </table>
         <input type="submit" placeholder="Crear">
     </form>
-{% endblock pruebaTemplate %}
+{% endblock PruebaTemplate %}

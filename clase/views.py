@@ -141,6 +141,6 @@ class BorrarPosts(DeleteView):
     
 class CrearPosts(CreateView):
     model = Posts
-    template_name = "form/post_crear.html"
+    template_name = "form/posts_crear.html"
     success_url = "form/posts_list.html"
     fields = ['Autor', 'FechaDePublicacion']
