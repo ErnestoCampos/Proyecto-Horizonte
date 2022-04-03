@@ -13,6 +13,8 @@ class Usuario(models.Model):
         return f"{self.nombre}"
 
 class Posts(models.Model):
+    Descripcion = models.TextField(max_length=340, default='Escribe Aqui')
+    Imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
     Autor = models.CharField(max_length= 30)
     FechaDePublicacion = models.DateTimeField()
  

@@ -1,9 +1,14 @@
 {% extends 'index/index.html' %}
 
 {% block PruebaTemplate %}
-<form action="POST">
+
+{% if mensaje%}
+    {{mensaje}}
+{% endif %}
+
+<form action="post" action="">
     {% csrf_token %}
-    {{forms.as_p}}
-    <input type="submit">
+    {{form.as_p}}
+    <button>Inicia Sesion</button>
 </form>
 {% endblock PruebaTemplate %}
