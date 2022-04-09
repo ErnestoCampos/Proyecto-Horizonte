@@ -7,7 +7,7 @@
 
 {% block PruebaTemplate %}
     
-    <form action={% url 'posts_crear' %} method="post">
+    <form action={% url 'posts_crear' %} method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
             {{form.as_p}}

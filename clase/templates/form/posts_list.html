@@ -7,9 +7,8 @@
 
 {% block Formulario %}
 
-<a href={% url 'posts_crear' %}>Crear Post</a>
-
 <h2 class="text-center">Ultimas Publicaciones</h2>
+<a href={% url 'posts_crear' %}>Crear Post</a>
 {% for post in object_list %}
 <li>
     {{post}}

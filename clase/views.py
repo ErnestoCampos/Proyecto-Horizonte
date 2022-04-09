@@ -69,7 +69,6 @@ def lista_usuarios(request):
     return render(request, 'form/lista_usuarios.html', {'form': form, 'usuarios': usuarios})
 
 # CRUD Basico
-
 def publicacion_listado(request): 
     publicaciones_listado = Posts.objects.all()
     return render(request, 'form/publicacion_listado.html', {'publicaciones_listado': publicaciones_listado}) 
@@ -113,8 +112,6 @@ def borrar_publicacion(request, id):
     publicacion.delete()
     return redirect('publicacion_listado')
 
-
-
 # CRUD con Clases Basadas en Vistas (CBV)
 
 
@@ -129,18 +126,18 @@ class DetallePosts(DetailView):
 
 class EditarPosts(UpdateView):
     model = Posts
-    success_url = "form/posts_list.html"
+    success_url = "/clase/posts/"
     template_name = "form/posts_editar.html"
-    fields = ['Autor', 'FechaDePublicacion']
+    fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen"]
 
 
 class BorrarPosts(DeleteView):
     model = Posts
     template_name = "form/posts_confirm_delete.html"
-    success_url = "form/posts_list.html"
+    success_url = "/clase/posts/"
     
 class CrearPosts(CreateView):
     model = Posts
     template_name = "form/posts_crear.html"
-    success_url = "form/posts_list.html"
-    fields = ['Autor', 'FechaDePublicacion']
+    success_url = "/clase/posts/"
+    fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen"]

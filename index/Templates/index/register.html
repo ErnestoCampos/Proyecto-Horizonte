@@ -1,7 +1,7 @@
 {% extends 'index/index.html' %}
 
 {% block Encabezado %}
-<h1>Inicia Sesion en Landfy</h1>
+<h1>Registrate en Landfy</h1>
 {% endblock Encabezado %}
 
 {% block PruebaTemplate %}
@@ -10,10 +10,10 @@
     {{mensaje}}
 {% endif %}
 
-<h1 class="text-center">Inicia Sesion</h1>
+<h1 class="text-center">Registro</h1>
 <form action="post" action="">
     {% csrf_token %}
     {{form.as_p}}
-    <button>Inicia Sesion</button>
+    <button>Registrate</button>
 </form>
 {% endblock PruebaTemplate %}

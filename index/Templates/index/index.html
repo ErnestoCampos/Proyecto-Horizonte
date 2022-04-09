@@ -32,6 +32,8 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'posts_list' %}>Posts</a></li>  
                         {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Formulario' %}>Registrate</a></li> {% endcomment %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'login' %}>Inicia Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'logout' %}>Cerrar Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'register' %}>Registro</a></li>
                         {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'publicacion_listado' %}>Crea tus posts</a></li>  {% endcomment %}
                         {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'lista_usuarios' %}>Busqueda</a></li> {% endcomment %}
                         {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Comentarios' %}>Reseñas</a></li> {% endcomment %}
@@ -40,14 +42,14 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead">
+        <header class="masthead" style="background-image: url('static/assets/img/Home.png')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             {% block Encabezado %}
                             <h1> Bienvenido a Landfy</h1>
-                            <span class="subheading">El lugar donde compartes de manera libre las fotos de tus lugares favoritos</span>
+                            <span class="subheading">La plataforma donde compartes de manera libre las fotos de tus lugares favoritos</span>
                             {% endblock Encabezado %}
                         </div>
                     </div>
