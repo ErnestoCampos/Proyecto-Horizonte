@@ -11,7 +11,7 @@
 {% endif %}
 
 <h1 class="text-center">Registro</h1>
-<form action="post" action="">
+<form method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <button>Registrate</button>

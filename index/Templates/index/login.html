@@ -6,14 +6,19 @@
 
 {% block PruebaTemplate %}
 
-{% if mensaje%}
-    {{mensaje}}
-{% endif %}
+
 
 <h1 class="text-center">Inicia Sesion</h1>
-<form action="post" action="">
+<form method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <button>Inicia Sesion</button>
+
+    <br><br>
+
+{% if mensaje%}
+    <span>{{mensaje}}</span>
+{% endif %}
 </form>
+
 {% endblock PruebaTemplate %}

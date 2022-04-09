@@ -46,18 +46,17 @@ def login_proyecto(request):
             return render(request, "index/login.html", {"form": form, "mensaje":"Formulario con datos incorrectos"})
     else:
         form = AuthenticationForm()   
-        return render(request, "Templates/index/index.html", {"form": form, "mensaje":""})
+        return render(request, "index/login.html", {"form": form, "mensaje":""})
 
 def register_proyecto(request):
     if request.method == "POST":
-
         form = NuestraCreacionUser(request.POST)
         if form.is_valid():
             username = form.cleaned_data["username"]
             form.save()
-            return render(request,"Templates/index/register.html", {"mensaje":f"Usuario {username} Creado"}) 
+            return render(request,"index/index.html", {"mensaje":f"Usuario {username} Creado"}) 
         else:
-            return render(request, "Templates/index/index.html", {"form": form, "mensaje":""}) 
+            return render(request, "index/register.html", {"form": form, "mensaje":""}) 
 
     form = NuestraCreacionUser()
-    return render(request,"Templates/index/register.html",{"form": form,"mensaje":""})
+    return render(request,"index/register.html",{"form": form,"mensaje":""})

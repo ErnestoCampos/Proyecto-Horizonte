@@ -48,8 +48,13 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             {% block Encabezado %}
-                            <h1> Bienvenido a Landfy</h1>
-                            <span class="subheading">La plataforma donde compartes de manera libre las fotos de tus lugares favoritos</span>
+                            {% if mensaje%}
+                            <h1>{{mensaje}}</h1>
+                            <span>Entra a la seccion de Posts y explora toda lo que Landy tiene para ofrecerte</span>
+                            {% else %}
+                                <h1> Bienvenido a Landfy</h1>
+                                <span class="subheading">La plataforma donde compartes de manera libre las fotos de tus lugares favoritos</span>
+                            {% endif %}
                             {% endblock Encabezado %}
                         </div>
                     </div>
@@ -70,18 +75,10 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
                                 <a href="https://www.instagram.com/ernesto_camposg/" target="_blanck">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
