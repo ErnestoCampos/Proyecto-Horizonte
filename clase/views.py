@@ -6,7 +6,7 @@ from clase.models import Comentario, Posts, Usuario
 from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -124,19 +124,19 @@ class DetallePosts(DetailView):
     template_name = "form/posts_info.html"
 
 
-class EditarPosts(UpdateView):
+class EditarPosts(LoginRequiredMixin,UpdateView):
     model = Posts
     success_url = "/clase/posts/"
     template_name = "form/posts_editar.html"
     fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen"]
 
 
-class BorrarPosts(DeleteView):
+class BorrarPosts(LoginRequiredMixin,DeleteView):
     model = Posts
     template_name = "form/posts_confirm_delete.html"
     success_url = "/clase/posts/"
     
-class CrearPosts(CreateView):
+class CrearPosts(LoginRequiredMixin ,CreateView):
     model = Posts
     template_name = "form/posts_crear.html"
     success_url = "/clase/posts/"

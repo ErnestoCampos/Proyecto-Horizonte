@@ -1,0 +1,22 @@
+{% extends 'index/index.html' %}
+
+{% block Encabezado %}
+<h1>Tu cuenta</h1>
+{% endblock Encabezado %}
+
+{% block PruebaTemplate %}
+
+{% if mensaje %}
+{{mensaje}}
+{% endif %}
+
+<h1>Formulario - Editar Perfil de {{request.user}}</h1> 
+ <form action="" method="POST">
+     {% csrf_token %}
+     <table>
+        {{FormularioUser.as_table}}
+     </table>
+     <button>Guardar</button>
+ </form>
+
+{% endblock PruebaTemplate %}

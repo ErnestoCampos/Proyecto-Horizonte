@@ -1,12 +1,14 @@
+from ast import For
 from urllib import request
 from django.shortcuts import redirect, render
 from django.template import loader
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from .forms import NuestraCreacionUser
+from index.forms import NuestraCreacionUser, NuestraEdicionUser
 
-from index.forms import NuestraCreacionUser
 def inicio(request):
     return render(request,"index/index.html")
 
@@ -39,7 +41,7 @@ def login_proyecto(request):
 
             if user is not None:
                 login(request, user)
-                return render(request, "index/index.html", {"mensaje":"Te Logueaste correctamente!"})
+                return render(request, "index/index.html", {"mensaje":"Te Logueaste correctamente!"}) 
             else:
                 return render(request, "index/login.html", {"form": form, "mensaje":"No se autentico"})
         else: 
@@ -59,4 +61,40 @@ def register_proyecto(request):
             return render(request, "index/register.html", {"form": form, "mensaje":""}) 
 
     form = NuestraCreacionUser()
-    return render(request,"index/register.html",{"form": form,"mensaje":""})
+    return render(request,"index/register.html",{"form": form, "mensaje":""})
+
+@login_required
+def editar_user(request): 
+    mensaje = ""
+    if request.method == "POST": #Si es metodo POST 
+        FormularioUser = NuestraEdicionUser(request.POST)
+        if FormularioUser.is_valid(): 
+
+            data = FormularioUser.cleaned_data
+
+            # Datos que se modifican
+            logued_user = request.user #intancia del Usuario
+            logued_user.email = data.get("email")
+            logued_user.first_name = data.get("first_name", "")
+            logued_user.last_name = data.get("last_name", "")
+            if data.get("password1") == data.get("password2") and len(data.get("password1")) > 8:
+                logued_user.set_password(data.get("password1"))
+            else:
+                mensaje = "no se modifico la contraseña"
+            
+            logued_user.save()
+
+            return render(request, "index/index.html", {"mensaje":mensaje}) 
+        else:
+            return render(request, "index/EditUser.html", {"FormularioUser":FormularioUser,"mensaje":mensaje})
+
+    FormularioUser = NuestraEdicionUser(
+        initial={
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'email': request.user.email,
+        }
+    )
+
+    return render(request, "index/EditUser.html", {"FormularioUser": FormularioUser, "mensaje":mensaje}) 
+            
