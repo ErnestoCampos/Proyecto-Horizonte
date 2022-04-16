@@ -10,8 +10,11 @@
 {{mensaje}}
 {% endif %}
 
-<h1>Formulario - Editar Perfil de {{request.user}}</h1> 
- <form action="" method="POST">
+<h1 class="text-center">Formulario - Editar Perfil de {{request.user}}</h1>
+{% if imagen %}
+<img src="{{request.user.avatar.imagen.url}}" alt="Foto de Perfil" height="100" class="rounded-circle rounded mx-auto d-block">
+{% endif %}
+ <form action="" method="POST" enctype="multipart/form-data">
      {% csrf_token %}
      <table>
         {{FormularioUser.as_table}}

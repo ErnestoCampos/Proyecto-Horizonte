@@ -8,7 +8,7 @@
 
 {% block Formulario %}
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <h1 class="text-center">Editar Post</h1>
         {{form.as_p}}

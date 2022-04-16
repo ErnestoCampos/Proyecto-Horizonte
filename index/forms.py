@@ -3,6 +3,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from index.models import Avatar
+
 
 class NuestraCreacionUser(UserCreationForm):
     first_name = forms.CharField(label="Nombre", required=False)
@@ -18,8 +20,11 @@ class NuestraCreacionUser(UserCreationForm):
         
 class NuestraEdicionUser(forms.Form):
     
-    email = forms.EmailField()
-    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput())
-    password2 = forms.CharField(label='Repetir Contraseña', widget=forms.PasswordInput())
+    email = forms.EmailField(required=False)
+    password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput(), required=False)
+    password2 = forms.CharField(label='Repetir Contraseña', widget=forms.PasswordInput(), required=False)
     first_name = forms.CharField(label="Nombre", max_length=20, required=False)
     last_name = forms.CharField(label="Apellido", max_length=20, required=False)
+    link = forms.URLField(required=False)
+    more_info = forms.CharField(required=False,max_length=300, label="Biografia")
+    imagen = forms.ImageField(required=False)

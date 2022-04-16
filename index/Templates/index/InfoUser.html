@@ -1,0 +1,27 @@
+{% extends 'index/index.html' %}
+
+
+{% block Encabezado %}
+<h1>Tu cuenta</h1>
+{% endblock Encabezado %}
+
+{% block PruebaTemplate %}
+
+        {% if msj %}
+            {{msj}}
+        {% endif %}
+    
+    {% if img %}
+    <img src="{{request.user.avatar.imagen.url}}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
+    {% endif %}
+    <table>
+        <h1 class="text-center">{{request.user.first_name}} {{request.user.last_name}}</h1> <br>
+        {{request.user.email}} 
+        {{extension_logued_user.link}} <br>
+        {{extension_logued_user.more_info}} <br>
+        <a href="{{request.user.avatar.link}}">Redes Sociales</a> <br>
+        <p> Bio: {{request.user.avatar.more_info}}</p>
+        <a href={% url 'EditarPerfil' %}>Editar datos</a>
+    </table>
+
+{% endblock PruebaTemplate %}

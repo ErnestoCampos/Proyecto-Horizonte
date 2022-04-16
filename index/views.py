@@ -6,14 +6,16 @@ from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+
+from .models import Avatar
 from .forms import NuestraCreacionUser
 from index.forms import NuestraCreacionUser, NuestraEdicionUser
 
 def inicio(request):
-    return render(request,"index/index.html")
+    return render(request,"index/index.html", {})
 
 def sobre_mi(request):
-    return render(request, "index/About.html")
+    return render(request, "index/About.html", {})
 
 def publicaciones(request):
     return render(request, "index/Publicaciones.html")
@@ -66,23 +68,29 @@ def register_proyecto(request):
 @login_required
 def editar_user(request): 
     mensaje = ""
-    if request.method == "POST": #Si es metodo POST 
-        FormularioUser = NuestraEdicionUser(request.POST)
+    extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
+    if request.method == "POST":
+        FormularioUser = NuestraEdicionUser(request.POST, request.FILES)
+
         if FormularioUser.is_valid(): 
 
             data = FormularioUser.cleaned_data
 
-            # Datos que se modifican
             logued_user = request.user #intancia del Usuario
-            logued_user.email = data.get("email")
-            logued_user.first_name = data.get("first_name", "")
-            logued_user.last_name = data.get("last_name", "")
-            if data.get("password1") == data.get("password2") and len(data.get("password1")) > 8:
+            logued_user.email = FormularioUser.cleaned_data['email']
+            logued_user.first_name = FormularioUser.cleaned_data['first_name']
+            logued_user.last_name = FormularioUser.cleaned_data['last_name']
+            extension_logued_user.imagen = FormularioUser.cleaned_data['imagen']
+            extension_logued_user.link = FormularioUser.cleaned_data['link']
+            extension_logued_user.more_info = FormularioUser.cleaned_data['more_info']
+
+            if FormularioUser.cleaned_data['password1'] != '' and FormularioUser.cleaned_data['password1'] == FormularioUser.cleaned_data['password2']:
                 logued_user.set_password(data.get("password1"))
             else:
-                mensaje = "no se modifico la contraseña"
+                mensaje = ""
             
             logued_user.save()
+            extension_logued_user.save()
 
             return render(request, "index/index.html", {"mensaje":mensaje}) 
         else:
@@ -93,8 +101,23 @@ def editar_user(request):
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,
             'email': request.user.email,
+            'imagen': extension_logued_user.imagen,
+            'link': extension_logued_user.link,
+            'more_info': extension_logued_user.more_info,
         }
     )
 
     return render(request, "index/EditUser.html", {"FormularioUser": FormularioUser, "mensaje":mensaje}) 
             
+
+# def buscar_url_avatar(user):
+#     avatares = Avatar.objects.filter(user=user)
+#     if avatares.exists():
+#         return avatares.first().imagen.url #first() para obtener el primer objeto
+#     else:
+#     # Si no existe el avatar regresar un None
+#         return None
+
+@login_required
+def info_user(request):
+    return render(request, "index/infoUser.html", {}) 

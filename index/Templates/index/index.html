@@ -33,7 +33,10 @@
                         {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'Formulario' %}>Registrate</a></li> {% endcomment %}
                         {% if request.user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'logout' %}>Cerrar Sesion</a></li>
-                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'EditarPerfil' %}>Mi Cuenta</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'InfoUsuario' %}>
+                                Mi Cuenta
+                                {% comment %} <img src="{{user_avatar_url}}" alt="Editar Usuario" height="40" width="40" class="rounded-circle"> {% endcomment %}
+                            </a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'login' %}>Inicia Sesion</a></li>
                             <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'register' %}>Registro</a></li>

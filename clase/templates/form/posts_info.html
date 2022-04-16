@@ -4,9 +4,9 @@
 
     Autor: {{object.Autor}}
     <br>
-    <img src="{{object.Imagen.url}}"> 
+    <img src="{{object.Imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block"> 
     <br>
-    Fecha de Publicacion: {{object.FechaDePublicacion}}
+    Creado el {{object.FechaDePublicacion | date:"d/m/y"}}
     <br>
     {{object.Descripcion}}
 
