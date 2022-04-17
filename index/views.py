@@ -120,4 +120,8 @@ def editar_user(request):
 
 @login_required
 def info_user(request):
+    if request.user.avatar.imagen.url is not None:
+        pass
+    else:
+        request.user.avatar.imagen.url = None
     return render(request, "index/infoUser.html", {}) 

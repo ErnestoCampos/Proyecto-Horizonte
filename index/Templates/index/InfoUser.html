@@ -11,9 +11,7 @@
             {{msj}}
         {% endif %}
     
-    {% if img %}
     <img src="{{request.user.avatar.imagen.url}}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
-    {% endif %}
     <table>
         <h1 class="text-center">{{request.user.first_name}} {{request.user.last_name}}</h1> <br>
         {{request.user.email}} 

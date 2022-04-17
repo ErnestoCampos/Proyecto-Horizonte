@@ -11125,6 +11125,7 @@ header.masthead {
   background: no-repeat center center;
   background-color: #6c757d;
   background-attachment: scroll;
+  background-image: url('static/assets/img/Home.png')
 }
 header.masthead:before {
   content: "";
@@ -11135,6 +11136,7 @@ header.masthead:before {
   bottom: 0;
   background-color: #25353F;
   opacity: 0.5;
+  background-image: url('static/assets/img/Home.png')
 }
 header.masthead .page-heading,
 header.masthead .post-heading,

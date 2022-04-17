@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="Ernesto Campos" />
-        <title>Landfy Images</title>
+        <title>Earth Memories Images</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href={% url 'inicio' %}>Landfy</a>
+                <a class="navbar-brand" href={% url 'inicio' %}>Earth Memories</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -57,9 +57,9 @@
                             {% block Encabezado %}
                             {% if mensaje%}
                             <h1>{{mensaje}}</h1>
-                            <span>Entra a la seccion de Posts y explora toda lo que Landy tiene para ofrecerte</span>
+                            <span>Entra a la seccion de Iniciar Sesion y empieza tu viaje</span>
                             {% else %}
-                                <h1> Bienvenido a Landfy</h1>
+                                <h1> Bienvenido a Earth Memories</h1>
                                 <span class="subheading">La plataforma donde compartes de manera libre las fotos de tus lugares favoritos</span>
                             {% endif %}
                             {% endblock Encabezado %}
@@ -94,6 +94,14 @@
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://mail.google.com/mail" target="_blanck">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>
