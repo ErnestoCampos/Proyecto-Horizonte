@@ -7,7 +7,7 @@
 
 {% block Publicaciones %}
 
-<form action= {% url 'update_publicacion' publicacion.id %} method="post">
+<form action= {% url 'update_publicacion' publicacion.id %} method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <h1 class="text-center">Actualiza la publicacion</h1>
     <table>

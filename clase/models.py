@@ -14,7 +14,7 @@ class Usuario(models.Model):
 
 class Posts(models.Model):
     Descripcion = models.TextField(max_length=340, default='Escribe Aqui')
-    Imagen = models.ImageField(null=True, blank=True, upload_to="imagenes/")
+    Imagen = models.ImageField(null=False, blank=False, upload_to="imagenes/")
     Autor = models.CharField(max_length= 30)
     FechaDePublicacion = models.DateTimeField(default=timezone.now)
  
