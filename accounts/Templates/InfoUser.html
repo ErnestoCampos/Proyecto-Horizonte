@@ -17,7 +17,7 @@
         <h1 class="text-center">{{request.user.first_name}} {{request.user.last_name}}</h1> <br>
         <p> Email: {{request.user.email}}</p> 
         <p> Bio: {{request.user.avatar.more_info}}</p> 
-        <a href="{{request.user.avatar.link}}">Redes Sociales</a>  <br><br>
+        <a href="{{request.user.avatar.link}}">Pagina Web</a>  <br><br>
         <a href={% url 'EditarPerfil' %}>Editar Perfil</a>
     </table>
 

@@ -136,6 +136,7 @@ class BorrarPosts(LoginRequiredMixin,DeleteView):
     template_name = "form/posts_confirm_delete.html"
     success_url = "/clase/posts/"
     
+
 class CrearPosts(LoginRequiredMixin ,CreateView):
     model = Posts
     template_name = "form/posts_crear.html"
