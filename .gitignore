@@ -2,6 +2,5 @@ venv
 db.sqlite3
 __pycache__
 node_modules
-requeriments.txt
 imagenes
 runtime.txt

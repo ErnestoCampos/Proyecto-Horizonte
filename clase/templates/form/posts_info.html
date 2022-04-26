@@ -2,11 +2,11 @@
 
 {% block PruebaTemplate %}
 
-    Autor: {{object.Autor}}
+    Posteado por: <b>{{object.Autor}}</b>
     <br>
-    <img src="{{object.Imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block"> 
+    <img src="{{object.Imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block" height="500" width="500"> 
     <br>
-    Creado el {{object.FechaDePublicacion | date:"d/m/y"}}
+    <i>Creado el {{object.FechaDePublicacion | date:"d/m/y"}}</i>
     <br>
     {{object.Descripcion}}
 
