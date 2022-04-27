@@ -76,7 +76,7 @@ def publicacion_listado(request):
 def crear_publicacion(request): 
     if request.method == 'POST': 
         formulario_cp = Formulario_Publicacion(request.POST)    
-    
+        
         if formulario_cp.is_valid():
             data = formulario_cp.cleaned_data
             nueva_publicacion = Posts(

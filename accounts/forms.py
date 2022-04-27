@@ -25,4 +25,4 @@ class NuestraEdicionUser(forms.Form):
     last_name = forms.CharField(label="Apellido", max_length=20, required=False)
     link = forms.URLField(required=False)
     more_info = forms.CharField(required=False,max_length=300, label="Biografia")
-    imagen = forms.ImageField(required=True)
+    imagen = forms.ImageField(required=False)

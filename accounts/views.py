@@ -46,13 +46,11 @@ def register_proyecto(request):
 @login_required
 def editar_user(request): 
     mensaje = ""
-    extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
     if request.method == "POST":
+        extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
         FormularioUser = NuestraEdicionUser(request.POST, request.FILES)
 
         if FormularioUser.is_valid(): 
-
-            data = FormularioUser.cleaned_data
 
             logued_user = request.user #intancia del Usuario
             logued_user.email = FormularioUser.cleaned_data['email']
@@ -63,17 +61,20 @@ def editar_user(request):
             extension_logued_user.more_info = FormularioUser.cleaned_data['more_info']
 
             if FormularioUser.cleaned_data['password1'] != '' and FormularioUser.cleaned_data['password1'] == FormularioUser.cleaned_data['password2']:
-                logued_user.set_password(data.get("password1"))
+                logued_user.set_password(FormularioUser.cleaned_data.get("password1"))
             else:
                 mensaje = ""
-            
+
             logued_user.save()
             extension_logued_user.save()
 
             return render(request, "index/index.html", {"mensaje":mensaje}) 
         else:
+            extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
             return render(request, "EditUser.html", {"FormularioUser":FormularioUser,"mensaje":mensaje})
 
+
+    extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
     FormularioUser = NuestraEdicionUser(
         initial={
             'first_name': request.user.first_name,

@@ -1,5 +1,5 @@
 {% extends 'index/index.html' %}
-
+{% load static %}
 
 {% block Encabezado %}
 <h1>Tu cuenta</h1>
@@ -10,9 +10,14 @@
         {% if msj %}
             {{msj}}
         {% endif %}
-    {% if request.user.avatar.imagen.url%}
-    <img src="{{request.user.avatar.imagen.url}}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
-    {% endif %}
+
+        {% if request.user.avatar.imagen.url is not None%}
+        <img src="{{request.user.avatar.imagen.url}}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
+        {% else %}
+        <img src="{% static 'assets\img\fondo.png' %}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
+        {% endif %}
+        
+    
     <table>
         <h1 class="text-center">{{request.user.first_name}} {{request.user.last_name}}</h1> <br>
         <p> Email: {{request.user.email}}</p> 
