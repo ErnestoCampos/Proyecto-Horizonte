@@ -7,11 +7,6 @@
 
 {% block Formulario %}
 
-
-{% if Posts.objects.get != None %}
-<a href={% url 'posts_crear' %}>Crear Post</a>
-<h3 class="text-center">No hay posts todavia</h3>
-{% else %}
 <h2 class="text-center">Ultimas Publicaciones</h2>
 <a href={% url 'posts_crear' %}>Crear Post</a>
 {% for post in object_list %}
@@ -22,7 +17,8 @@
     <a href={% url 'posts_detalle' post.id %}>Ver mas...</a>
 </li>
 {% endfor %}
-{% endif %}
+
+{{mensaje}}
 
 
 

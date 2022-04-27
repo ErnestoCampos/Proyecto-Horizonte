@@ -142,3 +142,12 @@ class CrearPosts(LoginRequiredMixin ,CreateView):
     template_name = "form/posts_crear.html"
     success_url = "/clase/posts/"
     fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen"]
+
+def BuscarPublicacion(user):
+    posts = Posts.objects.filter(user=user)
+    if posts.exists():
+        mensaje = "Ultimas Publicaciones"
+        return render("form/posts_list.html", {"mensaje":mensaje})
+    else:
+        mensaje = "No se encuentran Publicaciones"
+        return render("form/posts_list.html", {"mensaje":mensaje})

@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'index',
     'clase',
     'accounts',
-    'ckeditor',
-    'ckeditor_uploader',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
