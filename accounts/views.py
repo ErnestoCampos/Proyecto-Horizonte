@@ -64,10 +64,11 @@ def editar_user(request):
                 logued_user.set_password(FormularioUser.cleaned_data.get("password1"))
             else:
                 mensaje = ""
+            if extension_logued_user is None: 
+                extension_logued_user.save()
 
             logued_user.save()
             extension_logued_user.save()
-
             return render(request, "index/index.html", {"mensaje":mensaje}) 
         else:
             extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
