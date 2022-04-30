@@ -11,11 +11,11 @@
 <a href={% url 'posts_crear' %}>Crear Post</a>
 <h3 class="text-center">Todavia no hay publicaciones</h3>
 {% else %}
+<a href={% url 'posts_crear' %}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="35" height="35"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/></svg></a>
 <h2 class="text-center">Ultimas Publicaciones</h2>
-<a href={% url 'posts_crear' %}>Crear Post</a>
 {% for post in object_list %}
-<li>
-    {{post}}
+<li style="list-style: none;" class="text-center">
+    <img src="{{post.Imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block" height="600" width="800">
     <a href={% url 'posts_editar' post.id %}>Editar</a>
     <a href={% url 'posts_borrar' post.id %}>Borrar</a>
     <a href={% url 'posts_detalle' post.id %}>Ver mas...</a>

@@ -17,13 +17,15 @@
         <img src="{% static 'assets\img\fondo.png' %}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
         {% endif %}
         
-    
-    <table>
-        <h1 class="text-center">{{request.user.first_name}} {{request.user.last_name}}</h1> <br>
-        <p> Email: {{request.user.email}}</p> 
-        <p> Bio: {{request.user.avatar.more_info}}</p> 
-        <a href="{{request.user.avatar.link}}">Pagina Web</a>  <br><br>
-        <a href={% url 'EditarPerfil' %}>Editar Perfil</a>
-    </table>
+
+        <table>
+            <h1 class="text-center">{{request.user.first_name}} {{request.user.last_name}}</h1> <br>
+            <i><h4>Bio:</h4>{{request.user.avatar.more_info}}</i>  
+            <p> <h5>Email:</h5> {{request.user.email}}</p> 
+            <a href="{{request.user.avatar.link}}"><b>Pagina Personal</b></a>  <br><br> 
+            <b ><a href={% url 'EditarPerfil' %}>Editar Perfil</a></b>
+        </table>
+
+
 
 {% endblock PruebaTemplate %}
