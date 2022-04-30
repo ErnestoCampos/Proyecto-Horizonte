@@ -1,5 +1,3 @@
-from pyexpat import model
-from urllib import request
 from django.views.generic import ListView
 from django.shortcuts import redirect, render
 from clase.models import Comentario, Posts, Usuario
