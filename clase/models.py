@@ -3,7 +3,7 @@ from email.policy import default
 from django.db import models
 from django.forms import CharField
 from django.utils import timezone
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Usuario(models.Model):
@@ -16,7 +16,7 @@ class Usuario(models.Model):
         return f"{self.nombre}"
 
 class Posts(models.Model):
-    Descripcion = models.TextField(max_length=340, default='Escribe Aqui')
+    Descripcion = RichTextField(max_length=10000, default='Escribe Aqui', blank=True, null=True)
     Imagen = models.ImageField(null=False, blank=False, upload_to="imagenes/", default=datetime.now)
     Autor = models.CharField(max_length= 30)
     FechaDePublicacion = models.DateTimeField(default=timezone.now)

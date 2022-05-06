@@ -126,7 +126,7 @@ class EditarPosts(LoginRequiredMixin,UpdateView):
     model = Posts
     success_url = "/clase/posts/"
     template_name = "form/posts_editar.html"
-    fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen"]
+    fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen","Descripcion"]
 
 
 class BorrarPosts(LoginRequiredMixin,DeleteView):
@@ -139,7 +139,7 @@ class CrearPosts(LoginRequiredMixin ,CreateView):
     model = Posts
     template_name = "form/posts_crear.html"
     success_url = "/clase/posts/"
-    fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen"]
+    fields = ['Autor', 'FechaDePublicacion', "Descripcion", "Imagen","Descripcion"]
 
 def BuscarPublicacion(user):
     posts = Posts.objects.filter(user=user)

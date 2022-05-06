@@ -14,6 +14,6 @@
     <br>
     <i>Creado el {{object.FechaDePublicacion | date:"d/m/y"}}</i>
     <br>
-    {{object.Descripcion}}
+    {{object.Descripcion | safe}}
 
 {% endblock PruebaTemplate %}
