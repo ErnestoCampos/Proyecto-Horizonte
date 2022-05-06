@@ -56,7 +56,10 @@ def editar_user(request):
             logued_user.email = FormularioUser.cleaned_data['email']
             logued_user.first_name = FormularioUser.cleaned_data['first_name']
             logued_user.last_name = FormularioUser.cleaned_data['last_name']
-            extension_logued_user.imagen = FormularioUser.cleaned_data['imagen']
+            if extension_logued_user.imagen is not None:
+                pass
+            else:
+                extension_logued_user.imagen = FormularioUser.cleaned_data['imagen']
             extension_logued_user.link = FormularioUser.cleaned_data['link']
             extension_logued_user.more_info = FormularioUser.cleaned_data['more_info']
 
