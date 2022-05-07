@@ -15,7 +15,7 @@
 <h2 class="text-center">Ultimas Publicaciones</h2>
 {% for post in object_list %}
 <li style="list-style: none;" class="text-center">
-    <img src="{{post.Imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block" height="600" width="800">
+    <img src="{{post.imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block" height="600" width="800">
     <a href={% url 'posts_editar' post.id %}>Editar</a>
     <a href={% url 'posts_borrar' post.id %}>Borrar</a>
     <a href={% url 'posts_detalle' post.id %}>Ver mas...</a>

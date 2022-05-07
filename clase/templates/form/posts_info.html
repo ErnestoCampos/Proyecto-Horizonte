@@ -8,12 +8,12 @@
 
 {% block PruebaTemplate %}
 
-    Posteado por: <b>{{object.Autor}}</b>
+    Posteado por: <b>{{object.autor}}</b>
     <br>
-    <img src="{{object.Imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block" height="500" width="500"> 
+    <img src="{{object.imagen.url}}" class="img-fluid img-thumbnail rounded mx-auto d-block" height="500" width="500"> 
     <br>
-    <i>Creado el {{object.FechaDePublicacion | date:"d/m/y"}}</i>
+    <i>Creado el {{object.fecha_de_publicacion | date:"d/m/y"}}</i>
     <br>
-    {{object.Descripcion | safe}}
+    {{object.descripcion | safe}}
 
 {% endblock PruebaTemplate %}

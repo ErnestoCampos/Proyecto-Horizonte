@@ -1,3 +1,4 @@
+from email.policy import default
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -56,10 +57,12 @@ def editar_user(request):
             logued_user.email = FormularioUser.cleaned_data['email']
             logued_user.first_name = FormularioUser.cleaned_data['first_name']
             logued_user.last_name = FormularioUser.cleaned_data['last_name']
-            if extension_logued_user.imagen is not None:
-                pass
-            else:
+
+            if extension_logued_user.imagen is not default:
                 extension_logued_user.imagen = FormularioUser.cleaned_data['imagen']
+            else:
+                pass
+ 
             extension_logued_user.link = FormularioUser.cleaned_data['link']
             extension_logued_user.more_info = FormularioUser.cleaned_data['more_info']
 

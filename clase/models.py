@@ -16,14 +16,14 @@ class Usuario(models.Model):
         return f"{self.nombre}"
 
 class Posts(models.Model):
-    Descripcion = RichTextField(max_length=10000, default='Escribe Aqui', blank=True, null=True)
-    Imagen = models.ImageField(null=False, blank=False, upload_to="imagenes/", default=datetime.now)
-    Autor = models.CharField(max_length= 30)
-    FechaDePublicacion = models.DateTimeField(default=timezone.now)
+    descripcion = RichTextField(max_length=10000, default='Escribe Aqui', blank=True, null=True)
+    imagen = models.ImageField(null=False, blank=False, upload_to="imagenes/", default=datetime.now)
+    autor = models.CharField(max_length= 30)
+    fecha_de_publicacion = models.DateTimeField(default=timezone.now)
  
     def __str__(self):
         return f"Publicacion de {self.Autor}" 
     
 class Comentario(models.Model):
-    Autor = models.CharField(max_length= 30)
-    FechaDePublicacion = models.DateTimeField()
+    autor = models.CharField(max_length= 30)
+    fecha_de_publicacion = models.DateTimeField()
