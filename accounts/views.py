@@ -97,4 +97,4 @@ def editar_user(request):
             
 @login_required
 def info_user(request):
-    return render(request, "infoUser.html", {}) 
+        return render(request, "infoUser.html", {}) 
