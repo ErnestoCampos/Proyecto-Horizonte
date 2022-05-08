@@ -58,10 +58,10 @@ def editar_user(request):
             logued_user.first_name = FormularioUser.cleaned_data['first_name']
             logued_user.last_name = FormularioUser.cleaned_data['last_name']
 
-            if extension_logued_user.imagen is not default:
-                extension_logued_user.imagen = FormularioUser.cleaned_data['imagen']
-            else:
+            if  FormularioUser.cleaned_data['imagen'] is None:
                 pass
+            else:
+                extension_logued_user.imagen = FormularioUser.cleaned_data['imagen']
  
             extension_logued_user.link = FormularioUser.cleaned_data['link']
             extension_logued_user.more_info = FormularioUser.cleaned_data['more_info']
@@ -73,25 +73,27 @@ def editar_user(request):
             
             logued_user.save()
             extension_logued_user.save()
-            return render(request, "index/index.html", {"mensaje":mensaje}) 
+            
+            return render(request, "index/index.html", {"FormularioUser":FormularioUser,"mensaje":mensaje}) 
         else:
             extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
             return render(request, "EditUser.html", {"FormularioUser":FormularioUser,"mensaje":mensaje})
 
 
     extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
-    FormularioUser = NuestraEdicionUser(
-        initial={
+    inicial = {
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,
             'email': request.user.email,
-            'imagen': extension_logued_user.imagen,
+            'imagen': extension_logued_user.imagen,  
             'link': extension_logued_user.link,
             'more_info': extension_logued_user.more_info,
         }
-    )
+    print(inicial) 
+    Formulariouser=NuestraEdicionUser(initial=inicial)
+                                       
+    return render (request, "Edituser.html", {"FormularioUser": Formulariouser, "mensaje":mensaje})
 
-    return render(request, "EditUser.html", {"FormularioUser": FormularioUser, "mensaje":mensaje}) 
             
 @login_required
 def info_user(request):
