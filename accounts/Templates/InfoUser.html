@@ -12,12 +12,13 @@
         {% endif %}
 
 
-        {% if request.user.avatar.imagen.url is not None and request.user.avatar.imagen.url != "/Imagenes/False" %}
+        {% if request.user.avatar and request.user.avatar.imagen%}
         <img src="{{request.user.avatar.imagen.url}}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
         {% else %}
         <img src="{% static 'assets\img\fondo.png' %}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
         {% endif %}
-        
+
+        {{url_avatar}}
 
         <table>
             <h1 class="text-center">{{request.user.first_name}} {{request.user.last_name}}</h1> <br>

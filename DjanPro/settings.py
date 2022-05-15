@@ -145,9 +145,9 @@ CKEDITOR_CONFIGS = {
     }
     
 
-# ALLOWED_HOSTS = "*"
-
 # HEROKU
+
+# ALLOWED_HOSTS = "127.0.0.1"
 
 # import os 
 # from django.core.wsgi import get_wsgi_application
