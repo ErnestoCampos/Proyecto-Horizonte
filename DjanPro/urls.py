@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from DjanPro.settings import MEDIA_ROOT
+from djanpro.settings import MEDIA_ROOT
 
 urlpatterns = [
     path('', include("index.urls")),

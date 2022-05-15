@@ -59,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'DjanPro.urls'
+ROOT_URLCONF = 'djanpro.urls'
 
 TEMPLATES = [
     {
@@ -77,17 +77,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DjanPro.wsgi.application'
+WSGI_APPLICATION = 'djanpro.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-import dj-database-url
-from decouple import config
+import django-database-url
+from python-decouple import config
 
 DATABASES = {
-    'default': dj_database_url.config(
+    'default': django-database-url.config(
         default=config('DATABASE_URL')
         )
     }
@@ -157,7 +157,6 @@ CKEDITOR_CONFIGS = {
 # import os 
 # from django.core.wsgi import get_wsgi_application
 # from whitenois import DjangoWhiteNoise
-# import dj_database_url
 # import django_heroku
 
 
