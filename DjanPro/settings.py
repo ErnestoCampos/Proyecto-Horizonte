@@ -148,17 +148,3 @@ CKEDITOR_CONFIGS = {
     }
     
 
-# ALLOWED_HOSTS = "*"
-
-# HEROKU
-
-# import os 
-# from django.core.wsgi import get_wsgi_application
-# from whitenois import DjangoWhiteNoise
-# import django_heroku
-
-
-
-# import dj_database_url
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
