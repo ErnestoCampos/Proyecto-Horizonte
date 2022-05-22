@@ -83,14 +83,12 @@ WSGI_APPLICATION = 'djanpro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-import django-database-url
-from python-decouple import config
-
 DATABASES = {
-    'default': django-database-url.config(
-        default=config('DATABASE_URL')
-        )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
 
 
 
@@ -129,7 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'Imagenes/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Imagenes')

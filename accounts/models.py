@@ -12,3 +12,4 @@ class Avatar(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     link = models.URLField(null=True)
     more_info = models.CharField(max_length=150, default="Escribe algo sobre ti")
+
