@@ -97,9 +97,4 @@ def editar_user(request):
             
 @login_required
 def info_user(request):
-    extension_logued_user, _ = Avatar.objects.get_or_create(user=request.user)
-    if extension_logued_user.imagen is True:
-        pass
-    else:
-        url_inicio = r'assets\img\fondo.png'
-    return render(request, "infoUser.html", {"url_inicio":url_inicio}) 
+        return render(request, "infoUser.html", {}) 
