@@ -24,6 +24,8 @@ from djanpro.settings import MEDIA_ROOT
 urlpatterns = [
     path('', include("index.urls")),
     path('clase/', include("clase.urls")),
-    path('admin/', admin.site.urls),
-    path("accounts/", include("accounts.urls"))
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("accounts/", include("accounts.urls")),
+    path('admin/', admin.site.urls)
+] 
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
