@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from email.mime import application
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +28,6 @@ SECRET_KEY = 'django-insecure-5%wdpom7_!0w5wx&qfv2_e@riio6&dqv$h!h_8ly_nk^2=w!pz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -125,9 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-MEDIA_URL = '/Imagenes/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'Imagenes')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_URL = 'imagenes/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'imagenes')
 
 
 # Default primary key field type
