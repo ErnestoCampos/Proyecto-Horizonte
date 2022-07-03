@@ -1,7 +1,7 @@
 {% extends 'index/index.html' %}
 
 {% block Encabezado %}
-<h1>Registrate en Horizont</h1>
+<h1>Registrate en Horizonte</h1>
 {% endblock Encabezado %}
 
 {% block PruebaTemplate %}
@@ -11,6 +11,6 @@
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <button>Registrate</button>
+    <button class="btn btn-primary">Registrate</button>
 </form>
 {% endblock PruebaTemplate %}
