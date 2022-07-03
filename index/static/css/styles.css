@@ -11123,7 +11123,7 @@ header.masthead {
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
   background: no-repeat center center;
-  background-color: #25353F;
+  background-color: #1A1C2E;
   background-attachment: fixed;
 }
 header.masthead:before {
@@ -11133,7 +11133,7 @@ header.masthead:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #25353F; 
+  background-color: #1A1C2E; 
   opacity: 0.5;
   background-image: url('/static/assets/img/Home.png') 
 }

@@ -3,7 +3,8 @@ from email.policy import default
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from django.forms import ImageField, PasswordInput, Textarea
+from clase.models import Posts
 
 class NuestraCreacionUser(UserCreationForm):
     first_name = forms.CharField(label="Nombre", required=False)
@@ -26,3 +27,18 @@ class NuestraEdicionUser(forms.Form):
     link = forms.URLField(required=False)
     more_info = forms.CharField(required=False,max_length=300, label="Biografia")
     imagen = forms.ImageField(required=False)
+
+    class Meta:
+        model = Posts
+        fields=('email','password1','password2','first_name','last_name','link','more_info','imagen')
+
+    widget={
+        'email': forms.TextInput(attrs={'class':'form-control'}),
+        'password1': forms.PasswordInput(attrs={'class':'form-control'}),
+        'password2': forms.PasswordInput(attrs={'class':'form-control'}),
+        'first_name': forms.TextInput(attrs={'class':'form-control'}),
+        'last_name': forms.TextInput(attrs={'class':'form-control'}),
+        'link': forms.TextInput(attrs={'class':'form-control'}),
+        'more_info': forms.Textarea(attrs={'class':'form-control'}),
+        'imagen': forms.ImageField(attrs={'class':'form-control'})
+        }
