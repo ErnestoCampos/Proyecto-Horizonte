@@ -1,10 +1,13 @@
+from dataclasses import fields
 from django.views.generic import ListView
 from django.shortcuts import redirect, render
+from clase import forms
 from clase.models import Comentario, Posts, Usuario
-from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear
+from clase.forms import Formulario_Comentario, Formulario_Publicacion, Formulario_Usuario, Usuario_Busqueda, Publicacion_Crear, Publicacion_Estilos
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # Create your views here.
 
@@ -137,9 +140,11 @@ class BorrarPosts(LoginRequiredMixin,DeleteView):
 
 class CrearPosts(LoginRequiredMixin ,CreateView):
     model = Posts
+    form_class: Publicacion_Estilos
     template_name = "form/posts_crear.html"
     success_url = "/clase/posts/"
     fields = ['autor', 'fecha_de_publicacion', "descripcion", "imagen","descripcion"]
+
 
 def BuscarPublicacion(user):
     posts = Posts.objects.filter(user=user)

@@ -8,9 +8,9 @@
 
 
 <h1 class="text-center">Registro</h1>
-<form method="POST">
+<form method="POST" class="d-flex flex-column m-auto">
     {% csrf_token %}
     {{form.as_p}}
-    <button class="btn btn-primary">Registrate</button>
+    <button class="btn btn-primary d-flex m-auto">Registrate</button>
 </form>
 {% endblock PruebaTemplate %}

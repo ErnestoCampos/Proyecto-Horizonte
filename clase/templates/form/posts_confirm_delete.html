@@ -9,8 +9,9 @@
 
 <form method="post">
     {% csrf_token %}
-    ¿Esta seguro que quiere borrar el post?
-    <input type="submit" value="Borrar">
+    <p class="text-center">¿Esta seguro que quiere borrar el post?</p>
+    <br>
+    <input type="submit" value="Borrar" class="btn btn-danger d-flex m-auto">
 </form>
 
 {% endblock Formulario %}

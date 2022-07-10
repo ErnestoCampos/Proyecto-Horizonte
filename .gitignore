@@ -4,3 +4,7 @@ __pycache__
 node_modules
 imagenes
 heroku
+/.build
+
+**/*.pyc
+*-env/

@@ -19,13 +19,13 @@
 <img src="{% static 'assets\img\fondo.png' %}" alt="imagen de perfil" class="rounded-circle rounded mx-auto d-block" height="150" width="150"> <br>
 {% endif %}
 
-<h1 class="text-center">Formulario - Editar Perfil de {{request.user}}</h1>
- <form action="" method="POST" enctype="multipart/form-data" class="">
+<h1 class="text-center">Editar Perfil de {{request.user}}</h1>
+ <form action="" method="POST" enctype="multipart/form-data" class="d-flex flex-column m-auto">
      {% csrf_token %}
      <table class="d-flex align-self-center flex-column">
         {{FormularioUser.as_table}}
      </table>
-     <button class="btn btn-primary d-flex" style="align-items:center">Guardar</button>
+     <button class="btn btn-primary d-flex m-auto mt-5">Guardar</button>
  </form>
 
 {% endblock PruebaTemplate %}
