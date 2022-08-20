@@ -26,7 +26,7 @@ class NuestraEdicionUser(forms.Form):
     last_name = forms.CharField(label="Apellido", max_length=20, required=False)
     link = forms.URLField(required=False)
     more_info = forms.CharField(required=False,max_length=300, label="Biografia")
-    imagen = forms.ImageField(required=False)
+    imagen = forms.ImageField(required=False, widget=forms.FileInput(attrs={"class":"form-control"}))
 
     class Meta:
         model = Posts
@@ -40,5 +40,4 @@ class NuestraEdicionUser(forms.Form):
         'last_name': forms.TextInput(attrs={'class':'form-control'}),
         'link': forms.TextInput(attrs={'class':'form-control'}),
         'more_info': forms.Textarea(attrs={'class':'form-control'}),
-        'imagen': forms.ImageField(attrs={'class':'form-control'})
         }
